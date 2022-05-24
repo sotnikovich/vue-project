@@ -3,12 +3,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "my-button",
+};
 </script>
 
 <style scoped>
 .button {
-  margin-top: 15px;
   background: none;
   color: teal;
   border: 1px solid teal;
