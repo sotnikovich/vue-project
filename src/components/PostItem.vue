@@ -3,7 +3,7 @@
     <div>
       <div>{{ post.id }}</div>
       <div><strong>Название:</strong> {{ post.title }}</div>
-      <div><strong>Описание:</strong> {{ post.body }}</div>
+      <div class="post__body"><strong>Описание:</strong> {{ post.body }}</div>
     </div>
     <div class="post__buttons">
       <MyButton @click="$emit('remove', post)">Удалить</MyButton>
@@ -32,5 +32,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.post__body {
+  max-width: 730px;
 }
 </style>
