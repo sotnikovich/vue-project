@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent>
     <h4>Создание поста</h4>
-    <MyInput v-model="post.title" class="input" placeholder="Название" />
-    <MyInput v-model="post.body" class="input" placeholder="Описание" />
+    <MyInput v-model="post.title" placeholder="Название" />
+    <MyInput v-model="post.body" placeholder="Описание" />
     <MyButton style="align-self: flex-end; margin-top: 15px" @click="createPost"
       >Создать</MyButton
     >
@@ -35,4 +35,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+form {
+  display: flex;
+  flex-direction: column;
+}
+</style>
