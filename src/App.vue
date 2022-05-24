@@ -5,7 +5,8 @@
     <MyPopup v-model:show="popupVisible">
       <PostForm @create="createPost" />
     </MyPopup>
-    <PostList :posts="posts" @remove="removePost" />
+    <PostList :posts="posts" @remove="removePost" v-if="!isPostsLoading" />
+    <div v-else>Идет загрузка...</div>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import PostForm from "./components/PostForm.vue";
 import PostList from "./components/PostList.vue";
 import MyPopup from "./components/UI/MyPopup.vue";
 import MyButton from "./components/UI/MyButton.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -21,15 +23,13 @@ export default {
     PostForm,
     MyPopup,
     MyButton,
+    MyButton,
   },
   data() {
     return {
-      posts: [
-        { id: 1, title: "Javascript", body: "Описание" },
-        { id: 2, title: "Javascript 2", body: "Описание" },
-        { id: 3, title: "Javascript 3", body: "Описание" },
-      ],
+      posts: [],
       popupVisible: false,
+      isPostsLoading: false,
     };
   },
   methods: {
@@ -43,6 +43,22 @@ export default {
     showPopup() {
       this.popupVisible = true;
     },
+    async fetchPosts() {
+      try {
+        this.isPostsLoading = true;
+        const res = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts?_limit=10"
+        );
+        this.posts = res.data;
+      } catch (err) {
+        alert("Ошибка");
+      } finally {
+        this.isPostsLoading = false;
+      }
+    },
+  },
+  mounted() {
+    this.fetchPosts();
   },
 };
 </script>
