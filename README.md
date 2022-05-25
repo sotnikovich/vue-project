@@ -1,19 +1,18 @@
-# vue
+# vue-project
 
-## Project setup
-```
-npm install
-```
+## Описание
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Вэб-приложение отображающее посты полученные из API.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Функционал
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Есть возможность добавить, удалить пост, также присутствует сортировка постов, строка поиска постов по определенным значениям.
+
+## Стэк
+
+* Vue
+* Vuex
+
+[Дэплой](https://sotnikovich.github.io/vue-project/)
+
+
