@@ -6,6 +6,7 @@
       <div class="post__body"><strong>Описание:</strong> {{ post.body }}</div>
     </div>
     <div class="post__buttons">
+      <MyButton @click="$router.push(`/posts/${post.id}`)">Открыть</MyButton>
       <MyButton @click="$emit('remove', post)">Удалить</MyButton>
     </div>
   </div>
@@ -35,5 +36,8 @@ export default {
 }
 .post__body {
   max-width: 730px;
+}
+.post__buttons {
+  display: flex;
 }
 </style>
