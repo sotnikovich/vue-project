@@ -36,7 +36,6 @@ import MyButton from "@/components/UI/MyButton.vue";
 import MySelect from "@/components/UI/MySelect.vue";
 import MyInput from "@/components/UI/MyInput.vue";
 import { mapState, mapActions, mapMutations, mapGetters } from "vuex";
-import axios from "axios";
 
 export default {
   components: {
