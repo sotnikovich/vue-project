@@ -66,7 +66,7 @@ export default {
       this.popupVisible = false;
     },
     removePost(post) {
-      this.posts = this.posts.filter((p) => p.id !== post.id);
+      this.$store.commit("post/DELETE_POST", post);
     },
     showPopup() {
       this.popupVisible = true;
